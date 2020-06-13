@@ -1,0 +1,22 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-zuul-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+# zuul 网关配置
+#zuul:
+#  prefix: /atcom    # 设置统一的前缀
+#  ignored-services: "*"  #不让其访问所有真实的微服务名称
+#  routes:
+#    myPayment.serviceId: cloud-provider-hystrix-payment  # 域名映射
+#    myPayment.path: /myPayment/**  #代理名称
+

@@ -1,0 +1,35 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wd9746/sprincloud-config.git #Github 上面git仓库的mingc
+          #搜索目录
+          search-paths:
+            - springcloud-config
+      # 读取分支
+      label: master
+  #rabbitmq相关配置 15672 是web端口； 5672 是MQ的端口
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+#暴露bus刷新配置的断点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
